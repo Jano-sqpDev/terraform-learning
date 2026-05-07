@@ -1,19 +1,19 @@
 variable "environment" {
-    description = "Deployment environment"
-    type        = string
-    default     = "dev"
+  description = "Deployment environment"
+  type        = string
+  default     = "dev"
 }
 
 variable "vpc_cidr" {
-    description = "VPC CIDR"
-    type        = string
-    default     = "10.0.0.0/16"
+  description = "VPC CIDR"
+  type        = string
+  default     = "10.0.0.0/16"
 }
 
 variable "public_subnet_cidr" {
-    description = "Public Subnet CIDR"
-    type        = string
-    default     = "10.0.1.0/24"
+  description = "Public Subnet CIDR"
+  type        = string
+  default     = "10.0.1.0/24"
 }
 
 # variable "private_subnet_cidr" {
@@ -23,21 +23,21 @@ variable "public_subnet_cidr" {
 # }
 
 variable "region" {
-    description = "AWS Region"
-    type        = string
-    default     = "eu-west-2"
+  description = "AWS Region"
+  type        = string
+  default     = "eu-west-2"
 }
 
 variable "ubuntu_ami" {
-    description = "Server AMI"
-    type        = string
-    default     = "ami-0951a43515d1f167b" 
+  description = "Server AMI"
+  type        = string
+  default     = "ami-0951a43515d1f167b"
 }
 
 variable "inst_type" {
-    description = "EC2 Instance Type"
-    type        = string
-    default     = "t3.micro"
+  description = "EC2 Instance Type"
+  type        = string
+  default     = "t3.micro"
 }
 
 

@@ -1,16 +1,16 @@
 output "exercise" {
-    description = "Exercise number:"
-    value = local.long_name
+  description = "Exercise number:"
+  value       = local.long_name
 }
 
 output "public_ip" {
-    description = "Public IP:"
-    value = aws_instance.server.public_ip
+  description = "Public IP:"
+  value       = aws_instance.server.public_ip
 }
 
 output "instance_id" {
-    description = "Instance ID:"
-    value = aws_instance.server.id
+  description = "Instance ID:"
+  value       = aws_instance.server.id
 }
 
 output "ssh_command" {
