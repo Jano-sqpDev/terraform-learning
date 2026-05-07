@@ -48,8 +48,14 @@ variable "key_name" {
   default     = "aws_key"
 }
 
-variable "public_key_path" {
-  description = "Path to SSH public key"
+# variable "public_key_path" {
+#   description = "Path to SSH public key"
+#   type        = string
+#   default     = "~/.ssh/aws_key.pub"
+# }
+
+
+variable "public_key" {
+  description = "SSH public key content"
   type        = string
-  default     = "~/.ssh/aws_key.pub"
 }
