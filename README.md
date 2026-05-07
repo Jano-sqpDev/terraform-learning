@@ -1,137 +1,152 @@
-# 🚀 DevOps Learning Dashboard
+# 🚀 Terraform Learning Journey
 
-## About Me
-- **Background:** VFX (Compositing) & IT
-- **Goal:** Junior DevOps Engineer
-- **Started:** May 2026
-- **OS:** Fedora 42 (Toolbox devops container)
+A progressive series of Terraform exercises building from basic EC2
+to complete production-ready AWS infrastructure.
 
----
-
-## 📊 Overall Progress
-- **Exercises Complete:** 2/10
-- **Certifications:** 0/3
-- **Projects on GitHub:** 1
-- **Days learning:** 2
+Transitioning from VFX & IT background into DevOps engineering.
 
 ---
 
-## 🗺️ Learning Path
+## 📋 Exercises
 
-### Phase 1 — Terraform & AWS (Now)
-| #   | Exercise                 | Status     | Date       | Difficulty |
-| --- | ------------------------ | ---------- | ---------- | ---------- |
-| 00  | First Steps — Playground | ✅ Complete | 2026-05-01 | ⭐          |
-| 01  | Minimal EC2 with nginx   | ✅ Complete | 2026-05-04 | ⭐          |
-| 02  | Variables and Outputs    | ✅ Complete | 2026-05-05 | ⭐          |
-| 03  | VPC From Scratch         | ⬜ Planned  |            |            |
-| 04  | Code Organisation        | ⬜ Planned  |            |            |
-| 05  | Remote State             | ⬜ Planned  |            |            |
-| 06  | Modules                  | ⬜ Planned  |            |            |
-| 07  | Workspaces               | ⬜ Planned  |            |            |
-| 08  | Auto Scaling             | ⬜ Planned  |            |            |
-| 09  | GitHub Actions CI/CD     | ⬜ Planned  |            |            |
-| 10  | Complete Project         | ⬜ Planned  |            |            |
-
-### Phase 2 — Docker & Containers
-| Topic | Status | Notes |
-|---|---|---|
-| Docker basics | ⬜ Planned | |
-| Docker Compose | ⬜ Planned | |
-| Container networking | ⬜ Planned | |
-
-### Phase 3 — Kubernetes
-| Topic | Status | Notes |
-|---|---|---|
-| K8s concepts | ⬜ Planned | |
-| Deployments | ⬜ Planned | |
-| Services & Ingress | ⬜ Planned | |
-
-### Phase 4 — CI/CD
-| Topic | Status | Notes |
-|---|---|---|
-| GitHub Actions | 🔄 In Progress | Next after Exercise 03 |
-| Jenkins | ⬜ Planned | |
-
----
-
-## 🏆 Certifications Roadmap
-| Certification | Status | Target Date | Cost |
+| # | Exercise | Status | Key Concepts |
 |---|---|---|---|
-| AWS Cloud Practitioner | ⬜ Planned | 2026-08 | ~$100 |
-| AWS Solutions Architect Associate | ⬜ Planned | 2026-11 | ~$150 |
-| Terraform Associate | ⬜ Planned | 2026-10 | ~$70 |
+| 00 | First Steps — Playground | ✅ Complete | VPC, EC2, Security Groups, SSH |
+| 01 | Minimal EC2 with nginx | ✅ Complete | AMI data source, user_data, key pair |
+| 02 | Variables and Outputs | ✅ Complete | variables.tf, locals, outputs, file separation |
+| 03 | VPC From Scratch | ⬜ Planned | Public/private subnets, NAT Gateway, Bastion |
+| 04 | Code Organisation | ⬜ Planned | File structure, locals, tagging strategy |
+| 05 | Remote State | ⬜ Planned | S3 backend, DynamoDB locking |
+| 06 | Modules | ⬜ Planned | Reusable modules, DRY principles |
+| 07 | Workspaces | ⬜ Planned | Multi-environment, dev/staging/prod |
+| 08 | Auto Scaling | ⬜ Planned | ALB, Launch Template, ASG |
+| 09 | GitHub Actions CI/CD | ✅ Complete | Automated plan/apply pipeline |
+| 10 | Complete Project | ⬜ Planned | Full production architecture |
 
 ---
 
-## 🛠️ Tools & Environment
-| Tool | Where | Status |
-|---|---|---|
-| Terraform v1.15.1 | Toolbox devops container | ✅ Ready |
-| AWS CLI | Toolbox devops container | ✅ Ready |
-| AWS SAM CLI | Toolbox devops container | ✅ Ready |
-| Python 3 | Toolbox devops container | ✅ Ready |
-| Git | Host | ✅ Ready |
-| VS Code | Toolbox devops container | ✅ Ready |
-| Chrome | Flatpak | ✅ Ready |
-| Thunderbird | Flatpak | ✅ Ready |
-| Obsidian | Host | ✅ Ready |
-| TickTick | All platforms | ✅ Ready |
+## 🏗️ Tech Stack
+
+![Terraform](https://img.shields.io/badge/Terraform-1.15.1-7B42BC?logo=terraform)
+![AWS](https://img.shields.io/badge/AWS-eu--west--2-FF9900?logo=amazonaws)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI%2FCD-2088FF?logo=githubactions)
+![Fedora](https://img.shields.io/badge/Fedora-42-51A2DA?logo=fedora)
 
 ---
 
-## 📚 Resources
+## 📁 Repository Structure
 
-### Currently Using
-- [Terraform AWS Provider Docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
-- [AWS Documentation](https://docs.aws.amazon.com)
-- [TechWorld with Nana YouTube](https://www.youtube.com/@TechWorldwithNana)
-- [HashiCorp Terraform Tutorials](https://developer.hashicorp.com/terraform/tutorials)
-
-### Planned
-- Adrian Cantrill AWS courses
-- TechWorld with Nana DevOps Bootcamp
+    terraform-learning/
+    ├── .github/
+    │   └── workflows/
+    │       └── exercise-02.yml    ← CI/CD pipeline
+    ├── exercise-00-first-steps/
+    ├── exercise-01-minimal-ec2/
+    ├── exercise-02-variables-outputs/
+    └── README.md
 
 ---
 
-## 💡 Key Lessons Learned So Far
+## 🚀 Exercise 02 — Variables and Outputs
+
+Most recent completed exercise. Refactored Exercise 01 code
+so nothing is hardcoded.
+
+### Infrastructure Created
+- VPC with public subnet
+- EC2 instance (Ubuntu 24.04)
+- Security group (SSH + HTTP + HTTPS)
+- Internet Gateway and Route Table
+- SSH key pair
+
+### Key Patterns Used
+
+**Data source for AMI — no hardcoded IDs:**
+```hcl
+data "aws_ami" "ubuntu" {
+  most_recent = true
+  owners      = ["099720109477"]
+  filter {
+    name   = "name"
+    values = ["ubuntu-pro-server/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-pro-*"]
+  }
+}
+```
+
+**Locals for consistent naming:**
+```hcl
+locals {
+  exercise    = "exer-02"
+  name_prefix = "sqp-${local.exercise}"
+}
+```
+
+**Merge for tags:**
+```hcl
+tags = merge(local.common_tags, {
+  Name = "vpc-${local.name_prefix}"
+})
+```
+
+### How to Run
+```bash
+# Clone repo
+git clone git@github.com:Jano-sqpDev/terraform-learning.git
+
+# Navigate to exercise
+cd exercise-02-variables-outputs
+
+# Copy and fill in variables
+cp terraform.tfvars.example terraform.tfvars
+
+# Deploy
+terraform init
+terraform plan
+terraform apply
+
+# Destroy when done
+terraform destroy
+```
+
+### Outputs
+```bash
+public_ip    = "xx.xx.xx.xx"
+instance_id  = "i-xxxxxxxxx"
+ssh_command  = "ssh -i ~/.ssh/aws_key ubuntu@xx.xx.xx.xx"
+website_url  = "http://xx.xx.xx.xx"
+```
+
+---
+
+## ⚙️ CI/CD Pipeline
+
+GitHub Actions workflow automatically:
+
+| Event | Action |
+|---|---|
+| Pull Request | Runs terraform fmt, validate, plan |
+| Merge to main | Runs terraform apply |
+
+---
+
+## 🔑 Key Lessons Learned
+
 - Always use `.id` when referencing Terraform resources
 - Security groups are explicit — nothing open by default
 - Always `terraform destroy` after practice — protect AWS bill
-- Flatpak apps are sandboxed from host commands
-- Public IP must be explicitly enabled on subnets
-- `vpc_security_group_ids` not `security_groups` inside VPC
 - AMI name patterns differ per region — use AWS CLI to discover
-- Ubuntu 24.04 codename is Noble — affects AMI filter patterns
 - `variables.tf` declares, `terraform.tfvars` assigns values
 - `locals` for computed values, `variables` for external input
-- `merge()` combines two maps — same as Python `{**dict1, **dict2}`
-- `data` sources fetch existing AWS info without creating resources
 - File separation keeps code clean — `main.tf`, `data.tf`, `key.tf`
-- Real errors teach more than tutorials
+- Never use `file()` with local paths in CI/CD pipelines
+- Store sensitive values as GitHub Secrets
 
 ---
 
-## 📝 Notes & Ideas
-- Consider writing a blog post about Fedora 42 + Toolbox setup
-- Document VFX background in LinkedIn — rare DevOps angle
-- Build GitHub portfolio alongside exercises
-- Look into dev.to or Hashnode for technical blog
+## 👤 About
 
----
+Transitioning from VFX (Compositing) & IT into DevOps engineering.
+Building hands-on AWS infrastructure experience with Terraform.
 
-## 🔗 Quick Links
-- [[Exercise 00 — First Steps]]
-- [[Exercise 01 — Minimal EC2 with nginx]]
-- [[Exercise 02 — Variables and Outputs]]
-- [[Exercise 03 — VPC From Scratch]]
-
----
-
-## 📅 Recent Activity
-- **2026-05-05** — Completed Exercise 02, learned variables,
-  locals, data sources, file separation, AMI discovery
-- **2026-05-04** — Completed Exercise 00 playground, set up
-  Fedora 42 Toolbox environment
-- **2026-05-01** — Completed Exercise 01, deployed first EC2
-  on AWS with nginx
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?logo=linkedin)](https://linkedin.com/in/yourprofile)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?logo=github)](https://github.com/Jano-sqpDev)
